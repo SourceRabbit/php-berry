@@ -26,17 +26,15 @@
 
 class AES256Encryption
 {
-
     private static string $OPENSSL_CIPHER_NAME = "aes-256-cbc"; //Name of OpenSSL Cipher 
     private static int $CIPHER_KEY_LEN = 32; // 32 bytes (256 bits)
 
     static function getRandomIV()
     {
-        $length = 16;
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_+ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
-        for ($i = 0; $i < $length; $i++)
+        for ($i = 0; $i < AES256Encryption::$CIPHER_KEY_LEN; $i++)
         {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
@@ -92,5 +90,4 @@ class AES256Encryption
         return $decryptedData;
     }
 }
-
 ?>
