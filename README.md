@@ -3,7 +3,7 @@ PHP - Berry
 <p align="center">
 <a href="https://www.sourcerabbit.com"><img src="https://github.com/SourceRabbit/php-berry/blob/main/images/Banner.png" alt="SourceRabbit.com"></a>
 </p>
-PHP-Berry is a Rapid Application framework for PHP. <br>
+PHP-Berry is a Rapid Application framework for PHP8 and newer. <br>
 
 
 ## Features Implemented
