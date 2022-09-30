@@ -5,7 +5,7 @@ PHP-berry is a Rapid Application framework for PHP. <br>
 ## Features Implemented
 
 
-### berry.MySQL
-* MySQL Connection 
+### berry.mysql
+* [MySQL Connection](https://github.com/SourceRabbit/php-berry/wiki/berry.mysql) 
 
 
