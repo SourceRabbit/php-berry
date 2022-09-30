@@ -13,9 +13,9 @@ class HTMLHelper
      * the given html string.
      * @param string $tag the tag to search
      * @param string $html is the html string to search for tag objects
-     * @return type array with html objects
+     * @return string array with html objects
      */
-    public function GetHTMLTags(string $tag, string $html)
+    public function GetHTMLTags(string $tag, string $html): array
     {
         $images = array();
         $regexResult = array();
@@ -26,6 +26,28 @@ class HTMLHelper
         }
         return $images;
     }
+
+    /**
+     * Converts a string to a URL friendy format
+     * @param string $string the string to convert to url friendly
+     * @return string 
+     */
+    public function URLFriendly(string $string): string
+    {
+        $string = str_replace('.', "", $string);
+        $string = str_replace('!', "", $string);
+        $string = str_replace('(', "", $string);
+        $string = str_replace(')', "", $string);
+        $string = str_replace(" ", "-", $string);
+        $string = str_replace("\\", "", $string);
+        $string = str_replace("/", "", $string);
+        $string = str_replace('"', "", $string);
+        $string = preg_replace("`\[.*\]`U", "", $string);
+        $string = preg_replace('`&(amp;)?#?[a-z0-9]+;`i', '-', $string);
+        $string = preg_replace("`&([a-z])(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig|quot|rsquo);`i", "\\1", $string);
+        return strtolower(trim($string, '-'));
+    }
+
 }
 
 ?>

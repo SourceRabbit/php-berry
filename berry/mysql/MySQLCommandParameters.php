@@ -15,7 +15,7 @@ class MySQLCommandParameters
      * @param type $parameter
      * @param type $type 
      */
-    private function Add($paramIndex, $value, $type, $length = NULL)
+    private function Add(int $paramIndex, $value, $type, $length = NULL)
     {
         $parameter = new MySQLCommandParameter($paramIndex, $value, $type, $length);
         $this->fParameters[$paramIndex] = $parameter;
@@ -27,7 +27,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setString($paramIndex, $value, $length = NULL)
+    public function setString(int $paramIndex, string $value, $length = NULL)
     {
         $this->Add($paramIndex, $value, "s", $length);
     }
@@ -38,7 +38,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setInteger($paramIndex, $value, $length = NULL)
+    public function setInteger(int $paramIndex, int $value, $length = NULL)
     {
         $this->Add($paramIndex, $value, "i", $length);
     }
@@ -49,7 +49,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setDouble($paramIndex, $value, $length = NULL)
+    public function setDouble(int $paramIndex, float $value, $length = NULL)
     {
         $this->Add($paramIndex, $value, "d", $length);
     }
@@ -60,7 +60,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setBlob($paramIndex, $value, $length = NULL)
+    public function setBlob(int $paramIndex, $value, $length = NULL)
     {
         $this->Add($paramIndex, $value, "b", $length);
     }
