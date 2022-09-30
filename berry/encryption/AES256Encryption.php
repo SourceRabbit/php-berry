@@ -24,18 +24,19 @@
   SOFTWARE.
  */
 
-class AES128Encryption
+class AES256Encryption
 {
 
-    private static string $OPENSSL_CIPHER_NAME = "aes-128-cbc"; //Name of OpenSSL Cipher 
-    private static int $CIPHER_KEY_LEN = 16; // 16 bytes (128 bits)
+    private static string $OPENSSL_CIPHER_NAME = "aes-256-cbc"; //Name of OpenSSL Cipher 
+    private static int $CIPHER_KEY_LEN = 32; // 32 bytes (256 bits)
 
     static function getRandomIV()
     {
+        $length = 16;
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_+ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
-        for ($i = 0; $i < AES128Encryption::$CIPHER_KEY_LEN; $i++)
+        for ($i = 0; $i < $length; $i++)
         {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
@@ -45,49 +46,49 @@ class AES128Encryption
 
     /**
 
-     * Encrypt data using AES Cipher (CBC) with 128 bit key
-     * @param type $key - key to use should be 16 bytes long (128 bits)
+     * Encrypt data using AES Cipher (CBC) with 256 bit key
+     * @param type $key - key to use should be 32 bytes long (256 bits)
      * @param type $data - data to encrypt
      * @return encrypted data in base64 encoding with iv attached at end after a :
      */
     static function encrypt(string $key, string $data)
     {
-        $iv = AES128Encryption::getRandomIV();
+        $iv = AES256Encryption::getRandomIV();
 
-        if (strlen($key) < AES128Encryption::$CIPHER_KEY_LEN)
+        if (strlen($key) < AES256Encryption::$CIPHER_KEY_LEN)
         {
-            $key = str_pad($key, AES128Encryption::$CIPHER_KEY_LEN, "0"); //0 pad to len 16
+            $key = str_pad($key, AES256Encryption::$CIPHER_KEY_LEN, "0"); //0 pad to len 32
         }
-        else if (strlen($key) > AES128Encryption::$CIPHER_KEY_LEN)
+        else if (strlen($key) > AES256Encryption::$CIPHER_KEY_LEN)
         {
-            $key = substr($str, 0, AES128Encryption::$CIPHER_KEY_LEN); //truncate to 16 bytes
+            $key = substr($str, 0, AES256Encryption::$CIPHER_KEY_LEN); //truncate to 32 bytes
         }
 
-        $encodedEncryptedData = base64_encode(openssl_encrypt($data, AES128Encryption::$OPENSSL_CIPHER_NAME, $key, OPENSSL_RAW_DATA, $iv));
+        $encodedEncryptedData = base64_encode(openssl_encrypt($data, AES256Encryption::$OPENSSL_CIPHER_NAME, $key, OPENSSL_RAW_DATA, $iv));
         $encodedIV = base64_encode($iv);
         $encryptedPayload = $encodedEncryptedData . ":" . $encodedIV;
         return $encryptedPayload;
     }
 
     /**
-     * Decrypt data using AES Cipher (CBC) with 128 bit key
-     * @param type $key - key to use should be 16 bytes long (128 bits)
+     * Decrypt data using AES Cipher (CBC) with 256 bit key
+     * @param type $key - key to use should be 32 bytes long (256 bits)
      * @param type $data - data to be decrypted in base64 encoding with iv attached at the end after a :
      * @return decrypted data
      */
     static function decrypt(string $key, string $data)
     {
-        if (strlen($key) < AES128Encryption::$CIPHER_KEY_LEN)
+        if (strlen($key) < AES256Encryption::$CIPHER_KEY_LEN)
         {
-            $key = str_pad($key, AES128Encryption::$CIPHER_KEY_LEN, "0"); //0 pad to len 16
+            $key = str_pad($key, AES256Encryption::$CIPHER_KEY_LEN, "0"); //0 pad to len 32
         }
-        else if (strlen($key) > AES128Encryption::$CIPHER_KEY_LEN)
+        else if (strlen($key) > AES256Encryption::$CIPHER_KEY_LEN)
         {
-            $key = substr($str, 0, AES128Encryption::$CIPHER_KEY_LEN); //truncate to 16 bytes
+            $key = substr($str, 0, AES256Encryption::$CIPHER_KEY_LEN); //truncate to 32 bytes
         }
 
         $parts = explode(':', $data); //Separate Encrypted data from iv.
-        $decryptedData = openssl_decrypt(base64_decode($parts[0]), AES128Encryption::$OPENSSL_CIPHER_NAME, $key, OPENSSL_RAW_DATA, base64_decode($parts[1]));
+        $decryptedData = openssl_decrypt(base64_decode($parts[0]), AES256Encryption::$OPENSSL_CIPHER_NAME, $key, OPENSSL_RAW_DATA, base64_decode($parts[1]));
         return $decryptedData;
     }
 }
