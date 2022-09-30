@@ -6,7 +6,6 @@ PHP-Berry is a Rapid Application framework for PHP. <br>
 
 ### berry.encryption
 * [AES 128bit](https://github.com/SourceRabbit/php-berry/wiki/berry.encryption.AES128Encryption)
-* [AES 256bit](https://github.com/SourceRabbit/php-berry/wiki/berry.encryption.AES256Encryption)
 
 ### berry.mysql
 * [MySQL Command, Connection & DataReader](https://github.com/SourceRabbit/php-berry/wiki/berry.mysql) 
