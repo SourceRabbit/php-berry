@@ -6,7 +6,7 @@ PHP-Berry is a Rapid Application framework for PHP. <br>
 
 
 ### berry.mysql
-* [MySQL Connection](https://github.com/SourceRabbit/php-berry/wiki/berry.mysql) 
+* [MySQL Command, Connection & DataReader](https://github.com/SourceRabbit/php-berry/wiki/berry.mysql) 
 
 ### berry.utils
 * [CrawlerDetector](https://github.com/SourceRabbit/php-berry/wiki/berry.utils.CrawlerDetector)
