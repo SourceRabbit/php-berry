@@ -15,7 +15,7 @@ class HTMLHelper
      * @param string $html is the html string to search for tag objects
      * @return type array with html objects
      */
-    public function GetAllTagsFromHTMLString(string $tag, string $html)
+    public function GetHTMLTags(string $tag, string $html)
     {
         $images = array();
         $regexResult = array();
