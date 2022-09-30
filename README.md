@@ -7,8 +7,9 @@ PHP - Berry
 PHP-Berry is a PHP back-end Application Framework developed by SourceRabbit.<br>
 At SourceRabbit we use PHP-Berry to almost all of our web services written in PHP. PHP-Berry is **compatible with PHP version 8 newer**. 
 
-PHP-Berry is under constant development and new Features are been frequently. Each subsequent version of Berry is compatible with the previous one.
+PHP-Berry is under continuous development and new features are added frequently. Each subsequent version of Berry is compatible with the previous one.
 
+This project is build using <a href="https://netbeans.apache.org/">Apache NetBeans IDE</a>
 
 ## Features Implemented
 
