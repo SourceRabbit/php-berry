@@ -17,13 +17,14 @@ class HTMLHelper
      */
     public function GetAllTagsFromHTMLString(string $tag, string $html)
     {
-        $imgs = array();
-        preg_match_all('/<' . $tag . '[^>]+>/i', $html, $result);
-        for ($i = 0; $i < sizeof($result); $i++)
+        $images = array();
+        $regexResult = array();
+        preg_match_all('/<' . $tag . '[^>]+>/i', $html, $regexResult);
+        for ($i = 0; $i < sizeof($regexResult[0]); $i++)
         {
-            $imgs[$i] = $result[0][$i];
+            $images[$i] = $regexResult[0][$i];
         }
-        return $imgs;
+        return $images;
     }
 }
 
