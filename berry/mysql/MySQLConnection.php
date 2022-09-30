@@ -37,7 +37,7 @@ class MySQLConnection
      * @param string $password is the user's password
      * @param string $charset is the the database charset
      */
-    public function __construct($serverIP, $database, $user, $password, $charset = "")
+    public function __construct(string $serverIP, string $database, string $user, string $password, string $charset = "")
     {
         $this->fLink = new mysqli($serverIP, $user, $password, $database);
 
@@ -53,17 +53,19 @@ class MySQLConnection
     }
 
     /**
-     * Escapes special characters in a string for use in an SQL statement
+     * Escapes special characters in a string for use in an SQL statement, 
+     * taking into account the current charset of the connection.
      * @param string $string is the string to escape
-     * @return string string
+     * @return the escaped string
      */
-    public function EscapeString($string)
+    public function EscapeString(string $string)
     {
-        return mysql_real_escape_string($string, $this->fLink);
+        //return mysql_real_escape_string($string, $this->fLink);
+        return mysqli_real_escape_string($this->fLink, $string);
     }
 
     /**
-     * Close MySQLConnection
+     * Closes this MySQLConnection
      */
     public function Close()
     {
