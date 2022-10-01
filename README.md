@@ -5,7 +5,7 @@ PHP-Berry
 </p>
 
 PHP-Berry is a backend Application Framework for **PHP version 8 and newer**, developed by SourceRabbit.<br>
-At SourceRabbit we use PHP-Berry for almost all of our web services written with PHP. 
+At SourceRabbit we use PHP-Berry for almost all of our web services written with PHP. PHP-Berry is designed to make common web development tasks simple and easy without sacrificing performance and certainly without sacrificing security.
 
 SourceRabbit on Discord:<br>
 [![](https://dcbadge.vercel.app/api/server/nRKETyjJ7E)](https://discord.gg/nRKETyjJ7E)
