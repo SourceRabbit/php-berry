@@ -3,7 +3,7 @@
 class MySQLConnection
 {
 
-    private $fLink;    // The mysqli link with the selected MySQL database
+    private mysqli $fLink; // The mysqli link with the selected MySQL database
 
     /**
      * Constructs a new MySQLConnection
@@ -34,16 +34,15 @@ class MySQLConnection
      * @param string $string is the string to escape
      * @return the escaped string
      */
-    public function EscapeString(string $string)
+    public function EscapeString(string $string): string
     {
-        //return mysql_real_escape_string($string, $this->fLink);
         return mysqli_real_escape_string($this->fLink, $string);
     }
 
     /**
      * Closes this MySQLConnection
      */
-    public function Close()
+    public function Close(): void
     {
         $this->fLink->close();
     }
@@ -52,7 +51,7 @@ class MySQLConnection
      * Returns the mysqli link with selected MySQL database.
      * @return mysqli 
      */
-    public function getLink()
+    public function getLink(): mysqli
     {
         return $this->fLink;
     }

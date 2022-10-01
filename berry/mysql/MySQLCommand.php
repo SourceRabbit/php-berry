@@ -3,10 +3,10 @@
 class MySQLCommand
 {
 
-    private MySQLConnection $fMySQLConnection;             // MySQLConnection of this command
-    private String $fQuery;                                // Query to execute
-    private $fPreparedStatement = NULL;                    // The prepared statement of this command
-    public MySQLCommandParameters $Parameters;            // Command parameters
+    private MySQLConnection $fMySQLConnection;  // MySQLConnection of this command
+    private String $fQuery;                     // Query to execute
+    private $fPreparedStatement = NULL;         // The prepared statement of this command
+    public MySQLCommandParameters $Parameters;  // Command parameters
 
     /**
      * Constructs a new MySQLCommand
@@ -24,7 +24,7 @@ class MySQLCommand
      * Execute query and return the number of affected rows.
      * @return the number of affected rows.
      */
-    public function ExecuteQuery()
+    public function ExecuteQuery(): int
     {
         if (sizeof($this->Parameters->getParameters()) > 0) // Query with parameters (Prepared Statement)
         {
@@ -67,7 +67,7 @@ class MySQLCommand
      * Returns MySQLDataReader
      * @return MySQLDataReader 
      */
-    public function ExecuteReader()
+    public function ExecuteReader(): MySQLDataReader
     {
         $this->fPreparedStatement = NULL;
 
@@ -110,7 +110,7 @@ class MySQLCommand
      * $query: is the query to set
      * @param type $query 
      */
-    public function setQuery($query)
+    public function setQuery($query): void
     {
         $this->fQuery = $query;
     }
@@ -119,7 +119,7 @@ class MySQLCommand
      * Return's the query been given to this command
      * @return string the command's query 
      */
-    public function getQuery()
+    public function getQuery(): string
     {
         return $this->fQuery;
     }
@@ -128,7 +128,7 @@ class MySQLCommand
      * Returns the MySQLConnection of this MySQLCommand
      * @return type MySQLConnection
      */
-    public function getMySQLConnection()
+    public function getMySQLConnection(): MySQLConnection
     {
         return $this->fMySQLConnection;
     }
@@ -137,7 +137,7 @@ class MySQLCommand
      * Return's the last inserted ID
      * @return type 
      */
-    public function getLastInsertID()
+    public function getLastInsertID(): int
     {
         return $this->fMySQLConnection->getLink()->insert_id;
     }
@@ -147,7 +147,7 @@ class MySQLCommand
      * This method should be called every time before query execution.
      * @return type 
      */
-    private function BindParametersToQuery()
+    private function BindParametersToQuery(): void
     {
         $parameterTypes = "";
         $ar = array();

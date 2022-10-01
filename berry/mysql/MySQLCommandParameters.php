@@ -15,7 +15,7 @@ class MySQLCommandParameters
      * @param type $parameter
      * @param type $type 
      */
-    private function Add(int $paramIndex, $value, $type, $length = NULL)
+    private function Add(int $paramIndex, $value, string $type, $length = NULL): void
     {
         $parameter = new MySQLCommandParameter($paramIndex, $value, $type, $length);
         $this->fParameters[$paramIndex] = $parameter;
@@ -27,7 +27,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setString(int $paramIndex, string $value, $length = NULL)
+    public function setString(int $paramIndex, string $value, $length = NULL): void
     {
         $this->Add($paramIndex, $value, "s", $length);
     }
@@ -38,7 +38,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setInteger(int $paramIndex, int $value, $length = NULL)
+    public function setInteger(int $paramIndex, int $value, $length = NULL): void
     {
         $this->Add($paramIndex, $value, "i", $length);
     }
@@ -49,7 +49,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setDouble(int $paramIndex, float $value, $length = NULL)
+    public function setDouble(int $paramIndex, float $value, $length = NULL): void
     {
         $this->Add($paramIndex, $value, "d", $length);
     }
@@ -60,7 +60,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setBlob(int $paramIndex, $value, $length = NULL)
+    public function setBlob(int $paramIndex, $value, $length = NULL): void
     {
         $this->Add($paramIndex, $value, "b", $length);
     }
@@ -68,12 +68,12 @@ class MySQLCommandParameters
     /**
      * Remove all parameters
      */
-    public function Clear()
+    public function Clear(): void
     {
         $this->fParameters = array();
     }
 
-    public function getParameters()
+    public function getParameters(): array
     {
         return $this->fParameters;
     }
