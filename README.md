@@ -22,6 +22,6 @@ Each subsequent version of PHP-Berry is compatible with the previous one.
 ### Encryption
 * [AES 128bit](https://github.com/SourceRabbit/php-berry/wiki/berry.encryption.AES128Encryption)
 
-### berry.utils
+### Utilities
 * [CrawlerDetector](https://github.com/SourceRabbit/php-berry/wiki/berry.utils.CrawlerDetector)
 * [HTMLHelper](https://github.com/SourceRabbit/php-berry/wiki/berry.utils.HTMLHelper)
