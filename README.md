@@ -20,7 +20,7 @@ Each subsequent version of PHP-Berry is compatible with the previous one.
 * [AES 128bit](https://github.com/SourceRabbit/php-berry/wiki/berry.encryption.AES128Encryption)
 
 ### berry.mysql
-* [MySQL Command, Connection & DataReader](https://github.com/SourceRabbit/php-berry/wiki/berry.mysql) 
+* [MySQL/MariaDB with Prepared Statements and Raw SQL](https://github.com/SourceRabbit/php-berry/wiki/berry.mysql)
 
 ### berry.utils
 * [CrawlerDetector](https://github.com/SourceRabbit/php-berry/wiki/berry.utils.CrawlerDetector)
