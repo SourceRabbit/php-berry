@@ -1,14 +1,19 @@
 <?php
-require_once(__DIR__ . "/berry/encryption.php"); // Include berry encryption package
+require_once(__DIR__ . "/berry/utils.php"); // Include berry utils package
 
-$encryptionKey = "%2IR5wdW%Q7bLE*v+v4WpNfM*pkeM4sz"; // 32characters encryption key
-$stringToEncrypt = "This is a simple text we need to encrypt";
+// Initialize a new Mailer
+$mailer = new Mailer();
 
-print "Original String: " . $stringToEncrypt."<br>";
+$htmlContent = '<h1>Email Title</h1>';
+$htmlContent .= '<div>Dear customer, this is Elon Musk...</div>';
 
-$encryptedString = AES256Encryption::encrypt($encryptionKey,$stringToEncrypt);
-print "Encrypted String: " . $encryptedString."<br>";
+$subject = "Email subject...";
+$fromEmail = "elonmusk@email.com";
+$fromTitle = "Elon Musk";
+$toEmail = "customer@customer.com";
 
-$descryptedString = AES256Encryption::decrypt($encryptionKey, $encryptedString);
-print "Decrypted String: " . $descryptedString."<br>";
+if (!$mailer->SendEmail($htmlContent, $subject, $fromEmail, $fromTitle, $toEmail))
+{
+    print "Unable to send the email!";
+}
 ?>
