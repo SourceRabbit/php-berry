@@ -26,3 +26,4 @@ Each subsequent version of PHP-Berry is compatible with the previous one.
 ### Utilities
 * [CrawlerDetector](https://github.com/SourceRabbit/php-berry/wiki/berry.utils.CrawlerDetector)
 * [HTMLHelper](https://github.com/SourceRabbit/php-berry/wiki/berry.utils.HTMLHelper)
+* [Mailer](https://github.com/SourceRabbit/php-berry/wiki/berry.utils.Mailer)
