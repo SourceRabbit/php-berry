@@ -1,11 +1,14 @@
 <?php
-require_once(__DIR__ . "/berry/utils.php"); // Include berry utils package
+require_once(__DIR__ . "/berry/encryption.php"); // Include berry encryption package
 
-$crawlerDetector = new CrawlerDetector();
-$crawlerName = $crawlerDetector->getCrawlerName();
+$encryptionKey = "%2IR5wdW%Q7bLE*v+v4WpNfM*pkeM4sz"; // 32characters encryption key
+$stringToEncrypt = "This is a simple text we need to encrypt";
 
-if ($crawlerName != "")
-{
-    print "Crawler Detected: " . $crawlerName;
-}
+print "Original String: " . $stringToEncrypt."<br>";
+
+$encryptedString = AES256Encryption::encrypt($encryptionKey,$stringToEncrypt);
+print "Encrypted String: " . $encryptedString."<br>";
+
+$descryptedString = AES256Encryption::decrypt($encryptionKey, $encryptedString);
+print "Decrypted String: " . $descryptedString."<br>";
 ?>
