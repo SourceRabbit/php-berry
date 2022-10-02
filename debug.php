@@ -10,7 +10,7 @@ $htmlContent .= '<div>Dear customer, this is Elon Musk...</div>';
 $subject = "Email subject...";
 $fromEmail = "elonmusk@email.com";
 $fromTitle = "Elon Musk";
-$toEmail = "customer@customer.com";
+$toEmail = "customer@customerdomain.com";
 
 if (!$mailer->SendEmail($htmlContent, $subject, $fromEmail, $fromTitle, $toEmail))
 {
