@@ -16,8 +16,8 @@ This project is build using <a href="https://netbeans.apache.org/">Apache NetBea
 PHP-Berry is under continuous development and new features are added frequently.<br>
 Each subsequent version of PHP-Berry is compatible with the previous one.
 
-### MySQL/MariaDB
-* [MySQL/MariaDB with Prepared Statements and Raw SQL](https://github.com/SourceRabbit/php-berry/wiki/berry.mysql)
+### Database
+* [MySQL/MariaDB](https://github.com/SourceRabbit/php-berry/wiki/berry.mysql)
 
 ### Encryption
 * [AES 128bit](https://github.com/SourceRabbit/php-berry/wiki/berry.encryption.AES128Encryption)
