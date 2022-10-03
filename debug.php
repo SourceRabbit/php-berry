@@ -7,10 +7,11 @@ $htmlContent .= '<div>Dear customer, this is Elon Musk...</div>';
 $email = new EMail();
 $email->setSenderAddress("elonmusk@email.com");
 $email->setSenderName("Elon Musk");
-$email->setRecipientAddress("customer@customerdomain.com");
 $email->setSubject("This is a test");
 $email->setHTMLContent($htmlContent);
+$email->setRecipientAddress("customer@customerdomain.com");
 
+// Send the email
 if ($email->Send())
 {
     print "Email sent!";
