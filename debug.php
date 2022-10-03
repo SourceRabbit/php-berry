@@ -1,18 +1,21 @@
 <?php
-require_once(__DIR__ . "/berry/utils.php"); // Include berry utils package
-
-// Initialize a new Mailer
-$mailer = new Mailer();
+require_once(__DIR__ . "/berry/email.php"); // Include berry email package
 
 $htmlContent = '<h1>Email Title</h1>';
 $htmlContent .= '<div>Dear customer, this is Elon Musk...</div>';
 
-$subject = "Email subject...";
-$fromEmail = "elonmusk@email.com";
-$fromTitle = "Elon Musk";
-$toEmail = "customer@customerdomain.com";
+$email = new EMail();
+$email->setSenderAddress("elonmusk@email.com");
+$email->setSenderName("Elon Musk");
+$email->setRecipientAddress("customer@customerdomain.com");
+$email->setSubject("This is a test");
+$email->setHTMLContent($htmlContent);
 
-if (!$mailer->SendEmail($htmlContent, $subject, $fromEmail, $fromTitle, $toEmail))
+if ($email->Send())
+{
+    print "Email sent!";
+}
+else
 {
     print "Unable to send the email!";
 }
