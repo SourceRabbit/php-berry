@@ -18,7 +18,7 @@ Each subsequent version of PHP-Berry is compatible with the previous one.
 ### Database
 * [MySQL/MariaDB](https://github.com/SourceRabbit/php-berry/wiki/berry.mysql)
 
-## EMail
+### EMail
 * [EMail](https://github.com/SourceRabbit/php-berry/wiki/berry.email.EMail)
 
 ### Encryption
