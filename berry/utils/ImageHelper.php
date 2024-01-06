@@ -12,7 +12,7 @@ class ImageHelper
      * Converts .jpg, .png and .gif images into .webp format
      * @param string $source the source image path to convert
      * @param int $quality ranges from 0 (worst quality, smaller file) to 100 (best quality, biggest file). 
-     * @param bool $removeOld true if you want to delete the original file
+     * @param bool $removeOld set to true if you want to delete the original file
      * @return string returns the .webp file path
      */
     public function ConvertImageToWebP(string $source, int $quality = 100, bool $removeOld = false): string
