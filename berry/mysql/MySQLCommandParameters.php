@@ -66,6 +66,21 @@ class MySQLCommandParameters
     }
 
     /**
+     * Adds or sets the current time measured in the number of seconds 
+     * since the Unix Epoch (January 1 1970 00:00:00 GMT). 
+     * This method should be used with DateTime MySql variables.
+     * @param int $paramIndex
+     * @param int $secondsSinceUnixEpoch is the current time measured in the number of seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
+     * @param type $length
+     * @return void
+     */
+    public function setDateTime(int $paramIndex, int $secondsSinceUnixEpoch): void
+    {
+        $datetime = date("Y-m-d H:i:s", $secondsSinceUnixEpoch);
+        $this->Add($paramIndex, $datetime, "s", NULL);
+    }
+
+    /**
      * Remove all parameters
      */
     public function Clear(): void
@@ -77,7 +92,6 @@ class MySQLCommandParameters
     {
         return $this->fParameters;
     }
-
 }
 
 ?>

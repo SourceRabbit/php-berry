@@ -4,7 +4,6 @@ class MySQLConnection
 {
 
     private mysqli $fLink; // The mysqli link with the selected MySQL database
-    private bool $fConnectionIsOpen = false;
 
     /**
      * Constructs a new MySQLConnection
@@ -20,15 +19,13 @@ class MySQLConnection
 
         if ($this->fLink->connect_errno)
         {
-            throw new Exception("Failed to connect to MySQL:" . $this->fLink->connect_error);
+            throw new Exception("Failed to connect to MySQL: " . $this->fLink->connect_error);
         }
 
         if ($charset != "")
         {
             $this->fLink->set_charset($charset);
         }
-        
-        $this->fConnectionIsOpen = true;
     }
 
     /**
@@ -47,12 +44,7 @@ class MySQLConnection
      */
     public function Close(): void
     {
-        // Check if connection (fLink) is open before closing it
-        if ($this->fConnectionIsOpen)
-        {
-            $this->fLink->close();
-            $this->fConnectionIsOpen = false;
-        }
+        $this->fLink->close();
     }
 
     /**
@@ -63,6 +55,7 @@ class MySQLConnection
     {
         return $this->fLink;
     }
+
 }
 
 ?>
