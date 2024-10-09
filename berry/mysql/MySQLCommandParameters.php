@@ -27,7 +27,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setString(int $paramIndex, string $value, $length = NULL): void
+    public function setString(int $paramIndex, ?string $value, $length = NULL): void
     {
         $this->Add($paramIndex, $value, "s", $length);
     }
@@ -38,7 +38,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setInteger(int $paramIndex, int $value, $length = NULL): void
+    public function setInteger(int $paramIndex, ?int $value, $length = NULL): void
     {
         $this->Add($paramIndex, $value, "i", $length);
     }
@@ -49,7 +49,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setDouble(int $paramIndex, float $value, $length = NULL): void
+    public function setDouble(int $paramIndex, ?float $value, $length = NULL): void
     {
         $this->Add($paramIndex, $value, "d", $length);
     }
@@ -74,9 +74,9 @@ class MySQLCommandParameters
      * @param type $length
      * @return void
      */
-    public function setDateTime(int $paramIndex, int $secondsSinceUnixEpoch): void
+    public function setDateTime(int $paramIndex, ?int $secondsSinceUnixEpoch): void
     {
-        $datetime = date("Y-m-d H:i:s", $secondsSinceUnixEpoch);
+        $datetime = ($secondsSinceUnixEpoch != null) ? date("Y-m-d H:i:s", $secondsSinceUnixEpoch) : null;
         $this->Add($paramIndex, $datetime, "s", NULL);
     }
 
