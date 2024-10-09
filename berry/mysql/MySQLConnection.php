@@ -19,7 +19,7 @@ class MySQLConnection
 
         if ($this->fLink->connect_errno)
         {
-            throw new Exception("Failed to connect to MySQL: " . $this->fLink->connect_error);
+            throw new Exception("Failed to connect to MySQL: (" . $this->fLink->connect_errno . ") " . $this->fLink->connect_error);
         }
 
         if ($charset != "")

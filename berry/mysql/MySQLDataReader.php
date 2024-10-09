@@ -75,15 +75,29 @@ class MySQLDataReader
     }
 
     /**
-     * Return a readed value
+     * Return a read value
      * @param type $index
      * @return type 
      */
-    public function getValue($index)
+    public function getValue(int $index)
     {
         return $this->fReadValues[$index];
     }
 
+    /**
+     * Returns a read MySQL datetime value into a PHP DateTime Object. 
+     * The returned DateTime object's Time-Zone will be convert to the given TimeZone.
+     * Notice: MySql datetime object holds DateTime into UTC timezone.
+     * @param int $index
+     * @param DateTimeZone $timeZone 
+     * @return DateTime
+     */
+    public function getDateTime(int $index, DateTimeZone $timeZone): DateTime
+    {
+        $dt = new DateTime($this->fReadValues[$index]);
+        $dt->setTimezone($timeZone);
+        return $dt;
+    }
 }
 
 ?>
