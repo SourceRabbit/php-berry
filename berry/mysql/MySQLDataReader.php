@@ -94,8 +94,19 @@ class MySQLDataReader
      */
     public function getDateTime(int $index, DateTimeZone $timeZone): DateTime
     {
-        $dt = new DateTime($this->fReadValues[$index]);
+        $dt = new DateTime($this->fReadValues[$index], new DateTimeZone('UTC'));
         $dt->setTimezone($timeZone);
+        return $dt;
+    }
+
+    /**
+     * Return the read datetime value
+     * @param int $index
+     * @return DateTimeF
+     */
+    public function getDateTimeUTC(int $index): DateTime
+    {
+        $dt = new DateTime($this->fReadValues[$index]);
         return $dt;
     }
 }
