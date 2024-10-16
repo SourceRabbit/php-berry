@@ -20,6 +20,7 @@ Each subsequent version of PHP-Berry is compatible with the previous one.
 
 ### EMail
 * [EMail](https://github.com/SourceRabbit/php-berry/wiki/berry.email.EMail)
+* [SMTPEMail](https://github.com/SourceRabbit/php-berry/wiki/berry.email.SMTPEMail)
 
 ### Encryption
 * [AES 128bit](https://github.com/SourceRabbit/php-berry/wiki/berry.encryption.AES128Encryption)
