@@ -4,7 +4,6 @@ class MySQLConnection
 {
 
     private mysqli $fLink; // The mysqli link with the selected MySQL database
-    private bool $fConnectionIsOpen = false;
 
     /**
      * Constructs a new MySQLConnection
@@ -27,7 +26,6 @@ class MySQLConnection
         {
             $this->fLink->set_charset($charset);
         }
-        $this->fConnectionIsOpen = true;
     }
 
     /**
@@ -46,11 +44,7 @@ class MySQLConnection
      */
     public function Close(): void
     {
-        if ($this->fConnectionIsOpen)
-        {
-            $this->fLink->close();
-            $this->fConnectionIsOpen = false;
-        }
+        $this->fLink->close();
     }
 
     /**
@@ -61,6 +55,7 @@ class MySQLConnection
     {
         return $this->fLink;
     }
+
 }
 
 ?>

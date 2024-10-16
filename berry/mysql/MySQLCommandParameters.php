@@ -27,7 +27,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setString(int $paramIndex, ?string $value, $length = NULL): void
+    public function setString(int $paramIndex, string $value, $length = NULL): void
     {
         $this->Add($paramIndex, $value, "s", $length);
     }
@@ -38,7 +38,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setInteger(int $paramIndex, ?int $value, $length = NULL): void
+    public function setInteger(int $paramIndex, int $value, $length = NULL): void
     {
         $this->Add($paramIndex, $value, "i", $length);
     }
@@ -49,7 +49,7 @@ class MySQLCommandParameters
      * @param type $value
      * @param type $length 
      */
-    public function setDouble(int $paramIndex, ?float $value, $length = NULL): void
+    public function setDouble(int $paramIndex, float $value, $length = NULL): void
     {
         $this->Add($paramIndex, $value, "d", $length);
     }
@@ -66,21 +66,6 @@ class MySQLCommandParameters
     }
 
     /**
-     * Adds or sets the current time measured in the number of seconds 
-     * since the Unix Epoch (January 1 1970 00:00:00 GMT). 
-     * This method should be used with DateTime MySql variables.
-     * @param int $paramIndex
-     * @param int $secondsSinceUnixEpoch is the current time measured in the number of seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
-     * @param type $length
-     * @return void
-     */
-    public function setDateTime(int $paramIndex, ?int $secondsSinceUnixEpoch): void
-    {
-        $datetime = ($secondsSinceUnixEpoch != null) ? date("Y-m-d H:i:s", $secondsSinceUnixEpoch) : null;
-        $this->Add($paramIndex, $datetime, "s", NULL);
-    }
-
-    /**
      * Remove all parameters
      */
     public function Clear(): void
@@ -92,6 +77,7 @@ class MySQLCommandParameters
     {
         return $this->fParameters;
     }
+
 }
 
 ?>

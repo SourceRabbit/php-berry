@@ -34,17 +34,20 @@ class HTMLHelper
      */
     public function URLFriendly(string $string): string
     {
-        // Remove unwanted characters
-        $string = strtolower($string);
-        $unwantedChars = ['.', '!', '(', ')', '\\', '/', '"', ' '];
-        $string = str_replace($unwantedChars, ['', '', '', '', '', '', '', '-'], $string);
+        $string = str_replace('.', "", $string);
+        $string = str_replace('!', "", $string);
+        $string = str_replace('(', "", $string);
+        $string = str_replace(')', "", $string);
+        $string = str_replace(" ", "-", $string);
+        $string = str_replace("\\", "", $string);
+        $string = str_replace("/", "", $string);
+        $string = str_replace('"', "", $string);
         $string = preg_replace("`\[.*\]`U", "", $string);
         $string = preg_replace('`&(amp;)?#?[a-z0-9]+;`i', '-', $string);
         $string = preg_replace("`&([a-z])(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig|quot|rsquo);`i", "\\1", $string);
-        $string = preg_replace('~[^a-z0-9\-]+~', '', $string);
-        $string = preg_replace('~-+~', '-', $string);
-        return trim($string, '-');
+        return strtolower(trim($string, '-'));
     }
+
 }
 
 ?>
