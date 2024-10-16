@@ -85,8 +85,8 @@ class MySQLDataReader
     }
 
     /**
-     * DATETIME is always stored and returned as UTC, regardless of what your system's timezone is.
-     * This method reads a MySQL DATETIME value into a PHP DateTime Object and converts the TimeZone
+     * MySQL DATETIME object is always stored and returned as UTC, regardless of what your system's timezone is.
+     * This method reads a MySQL DATETIME value into a PHP DateTime Object and converts the TimeZone of the object
      * to the given TimeZone.
      * @param int $index
      * @param DateTimeZone $timeZone 
@@ -100,7 +100,7 @@ class MySQLDataReader
     }
 
     /**
-     * Return the read datetime value
+     * Returns the read datetime value
      * @param int $index
      * @return DateTimeF
      */
