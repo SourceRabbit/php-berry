@@ -48,6 +48,16 @@ class HTMLHelper
         return strtolower(trim($string, '-'));
     }
 
+    /**
+     * Returns an HTML-safe version of the given string.
+     * @param string $str The input string to be escaped.
+     * @param string $encoding (optional) The character encoding to use. Defaults to 'UTF-8'.
+     * @return string The HTML-escaped version of the input string.
+     */
+    public function MakeHTMLSafe($str, $encoding = 'UTF-8')
+    {
+        return htmlspecialchars($str, ENT_QUOTES, $encoding);
+    }
 }
 
 ?>
