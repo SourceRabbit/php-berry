@@ -54,7 +54,7 @@ class HTMLHelper
      * @param string $encoding (optional) The character encoding to use. Defaults to 'UTF-8'.
      * @return string The HTML-escaped version of the input string.
      */
-    public function MakeHTMLSafe($str, $encoding = 'UTF-8')
+    public function MakeHTMLSafe($str, $encoding = 'UTF-8'): string
     {
         return htmlspecialchars($str, ENT_QUOTES, $encoding);
     }
