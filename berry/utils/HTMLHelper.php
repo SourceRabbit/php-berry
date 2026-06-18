@@ -56,7 +56,7 @@ class HTMLHelper
      */
     public function MakeHTMLSafe($str, $encoding = 'UTF-8'): string
     {
-        return htmlspecialchars($str, ENT_QUOTES, $encoding);
+        return htmlspecialchars($str ?? '', ENT_QUOTES, $encoding);
     }
 }
 
